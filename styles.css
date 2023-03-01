@@ -52,7 +52,7 @@ header, main {
 /* MAIN CONTAINER */
 main {
     padding: 1em;
-    height: 70vh;
+    min-height: 70vh;
 }
 .main-container {
     background-color: var(--bright-text);
@@ -61,17 +61,17 @@ main {
     border-radius: 20px;
     height: auto;
 }
-
-/* PROFILE */
-.profile-name, .yourMovies-name {
+.profile-name, .yourMovies-name, .home-name {
     text-align: center;
     font-weight: lighter;   
 }
-.profile-container, .yourMovies-container {
+.profile-container, .yourMovies-container, .home-container {
     display: flex;
     flex-direction: row;
     padding: 1em 3em 0;    
 }
+
+/* PROFILE */
 .profile-container > div {
     padding: 1em;
 }
@@ -138,6 +138,22 @@ td:last-child {
     padding: 0.5em;
 }
 
+/* Home */
+.check {
+    text-align: center;
+}
+.check-img {
+    height: 1.5em;
+    width: 1.5em;
+}
+.button-rent {
+    border: none;
+    background-color: var(--dark-btn);
+    color: var(--bright-text);    
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
 /* FOOTER */
 
 footer {
