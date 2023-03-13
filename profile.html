@@ -30,13 +30,14 @@
                     <img src="images/profile.png" style="width:150px;height: 150px;">
                 </div>
                 <div class="profile-info">
-                    <div class="line"><strong>Name: </strong>John</div>
-                    <div class="line"> <strong>Surname: </strong>Newman</div>
-                    <div class="line"><strong>Email: </strong>john.newman@mail.com</div>
+                    <div class="line" id="fname"><strong>Name: </strong></div>
+                    <div class="line" id="lname"> <strong>Surname: </strong></div>
+                    <div class="line" id="e-mail"><strong>Email: </strong></div>
+                    <div id="error" style="color:red"></div>
                 </div>
             </div>
-            <button class="profile-btn1">Reset password</button>
-            <button class="profile-btn2">Reset email</button>
+            <button class="profile-btn1" id="reset-pass-btn">Reset password</button>
+            <button type="submit" class="profile-btn2" id="reset-email-btn">Reset email</button>
         </div>
 
     </main>
@@ -45,6 +46,8 @@
         <div class="created-by">Made by: Diana Žukauskienė</div>
         <div class="year">2023</div>
     </footer>
+
+    <script src="scriptProfile.js"></script>
 </body>
 
 </html>

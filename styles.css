@@ -55,7 +55,7 @@ main {
 /* MAIN CONTAINER */
 main {
     padding: 1em;
-    min-height: 70vh;
+    
 }
 
 .main-container {
@@ -63,7 +63,7 @@ main {
     margin-inline: 1.5em;
     padding-top: 1em;
     border-radius: 20px;
-    height: auto;
+ 
 }
 
 .profile-name,
@@ -142,6 +142,7 @@ td:last-child {
     background-color: var(--dark-text);
     color: var(--bright-text);
     padding-inline: 0.3em;
+    cursor: pointer;
 }
 
 .time {
@@ -160,10 +161,6 @@ td:last-child {
 }
 
 /* Home */
-.check {
-    text-align: center;
-}
-
 .check-img {
     height: 1.5em;
     width: 1.5em;
@@ -186,7 +183,7 @@ form {
 }
 
 .singin-container,
-.register-container {
+.register-container.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,6 +192,13 @@ form {
     margin: 1em;
     border-radius: 25px;
     padding: 1em 2em;
+}
+
+.register-container {
+    display: none;
+}
+#remove.hidden {
+    display:none;
 }
 
 label {
@@ -213,6 +217,7 @@ input {
 }
 
 .submit-btn {
+    width: 250px;
     border: none;
     color: var(--bright-text);
     background-color: var(--dark-btn);
@@ -220,6 +225,11 @@ input {
     padding: 0.5em 2em;
     margin: 0 3em;
     cursor: pointer;
+    align-self: center;
+}
+
+.hidden {
+    display: none;
 }
 
 a {
@@ -237,4 +247,7 @@ footer {
     padding: 4em 2em 1em 2em;
     color: var(--bright-text);
     background-color: var(--dark-text);
+    /* position: fixed; */
+    /* bottom: 0;
+    width: 100%; */
 }

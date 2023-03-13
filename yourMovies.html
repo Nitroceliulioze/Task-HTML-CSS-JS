@@ -31,19 +31,12 @@
                         <th>Time</th>
                         <th>Price</th>
                     </tr>
-                    <tr>
+                    <tr id="your-movie-row">
                         <td>Batman</td>
                         <td>Action</td>
-                        <td><span class="sign">&#60;</span><span class="time"> 12h </span><span class="sign">&#62;</span></td>
+                        <td><span class="sign prev" onclick="decrement()">&#60;</span><span class="time" id="time"> 12 </span><span class="sign next" id="next" onclick="increment()">&#62;</span></td>
                         <td>4.55$</td>
-                        <td><button class="button-remove">Remove</button></td>
-                    </tr>
-                    <tr>
-                        <td>Batman</td>
-                        <td>Action</td>
-                        <td><span class="sign">&#60;</span><span class="time"> 12h </span><span class="sign">&#62;</span></td>
-                        <td>4.55$</td>
-                        <td><button class="button-remove">Remove</button></td>
+                        <td><button class="button-remove" id="button-remove" onclick="remove()">Remove</button></td>
                     </tr>
                 </table>
             </div>
@@ -55,5 +48,7 @@
         <div class="created-by">Made by: Diana Žukauskienė</div>
         <div class="year">2023</div>
     </footer>
+
+    <script src="scriptYourMovies.js"></script>
 </body>
 </html>
