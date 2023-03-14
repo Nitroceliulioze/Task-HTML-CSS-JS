@@ -133,7 +133,7 @@ const yourMovies = []
 
 console.log(rentBtn)
 
-//How to get current movie?
+//How to get current movie? index position
 
 function Rent() {
     const currentMovie = ""
