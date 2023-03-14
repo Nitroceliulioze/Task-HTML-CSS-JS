@@ -197,9 +197,7 @@ form {
 .register-container {
     display: none;
 }
-#remove.hidden {
-    display:none;
-}
+
 
 label {
     font-size: 0.7em;
@@ -226,10 +224,6 @@ input {
     margin: 0 3em;
     cursor: pointer;
     align-self: center;
-}
-
-.hidden {
-    display: none;
 }
 
 a {

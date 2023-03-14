@@ -16,7 +16,7 @@
     </header>
 
     <main>
-        <form id="form">
+        <form id="form-signin">
             <div class="singin-container">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="email" placeholder="email">
@@ -26,9 +26,11 @@
                 <div id="error" style="color:red"></div>
             </div>
             <div id="remove">
-                <button type="submit" class="submit-btn" id="register-btn"><a href="#">Register</a></button>
+                <button type="submit" class="submit-btn" id="register-btn" ><a href="#">Register</a></button>
             </div>
-            <div class="register-container">
+        </form>    
+        <form id="form-register">
+            <div class="register-container" id="register-container">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="name">
                 <label for="surname">Surname</label>

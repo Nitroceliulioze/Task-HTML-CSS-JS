@@ -1,4 +1,5 @@
-const form = document.getElementById("form");
+const formSignin = document.getElementById("form-signin");
+const formRegister = document.getElementById("form-register");
 const password = document.getElementById("password");
 const email = document.getElementById("email");
 const fName = document.getElementById("name");
@@ -10,7 +11,30 @@ const passwordRegistration = document.getElementById("password1");
 const passwordAgain = document.getElementById('password2');
 
 
-form.addEventListener('submit', (e) => {
+formSignin.addEventListener('submit', (e) => {
+    let messages = [];
+    const emailFormat = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (email.value == '' || email.value == null) {
+        messages.push("Email is required")
+    }
+    if (emailFormat.test(email)) {
+        return true
+    } else {
+        messages.push("Please enter a valid email")
+    }
+
+    if (password.value.length <= 8) {
+        messages.push("Password must be longer than 8 characters")
+    }
+
+    if (messages.length > 0) {
+        e.preventDefault()
+        errorElement.innerText = messages.join(". ")
+    }
+    
+})
+
+formRegister.addEventListener('submit', (e) => {
     let messages = [];
     const emailFormat = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (email.value == '' || email.value == null) {
@@ -68,14 +92,19 @@ form.addEventListener('submit', (e) => {
     
 })
 
+const registerBtn = document.getElementById("register-btn");
+const remove = document.getElementById("remove");
+const registerConteiner = document.getElementById("register-container");
 
-const registerBtn = document.querySelector("#register-btn");
-const remove = document.getElementById("remove")
+registerBtn.addEventListener("click", () => {
+    openRegistration();
+})
 
-registerBtn.addEventListener("click", function () {
-    registerConteiner.classList.add("active");    
-    remove.remove()
-});
+function openRegistration() {    
+    registerConteiner.classList.add("active");
+    remove.remove()    
+}
+
 
 // // on Submit
 // function onSubmit() {
