@@ -1,47 +1,47 @@
 // HOME.html
-//MOVIE LIST 
+//MOVIE LIST
 
 class Movie {
-    constructor(title, genre, price, stock) {
-        this.title = title,
-            this.genre = genre,
-            this.price = price,
-            this.stock = stock
-    }
-    getTitle = () => {
-        return this.title
-    };
+  constructor(title, genre, price, stock, id) {
+    (this.title = title),
+      (this.genre = genre),
+      (this.price = price),
+      (this.stock = stock),
+      (this.id = id);
+  }
+  getTitle = () => {
+    return this.title;
+  };
 
-    getGenre = () => {
-        return this.genre
-    };
+  getGenre = () => {
+    return this.genre;
+  };
 
-    getPrice = () => {
-        return this.price
-    };
+  getPrice = () => {
+    return this.price;
+  };
 
-    getStock = () => {
-        return this.stock
-    }
+  getStock = () => {
+    return this.stock;
+  };
 
-    getMovies = () => {
-        return this.movies
-    }
+  getMovies = () => {
+    return this.movies;
+  };
 
-    addMovie = (movie) => {
-        this.movies.push(movie)
-    }
-
+  addMovie = (movie) => {
+    this.movies.push(movie);
+  };
 }
 
-const batman = new Movie('Batman', 'Action', 4.55, 0);
-const superman = new Movie('Superman', 'Action', 4.55, 3);
-const aquaman = new Movie('Aquaman', 'Action', 4.55, 3);
-const mermaid = new Movie('Little mermaid', 'Amination', 3.5, 5);
-const aladdin = new Movie('Aladdin', 'Animation', 4, 4);
-const titanic = new Movie('Titanic', 'Drama', 7, 10);
-const starwars = new Movie('Star Wars', 'Action', 6, 12);
-const got = new Movie('Game of Thrones', 'Fantasy', 12, 0);
+const batman = new Movie("Batman", "Action", 4.55, 0, 1);
+const superman = new Movie("Superman", "Action", 4.55, 3, 2);
+const aquaman = new Movie("Aquaman", "Action", 4.55, 3, 3);
+const mermaid = new Movie("Little mermaid", "Amination", 3.5, 5, 4);
+const aladdin = new Movie("Aladdin", "Animation", 4, 4, 5);
+const titanic = new Movie("Titanic", "Drama", 7, 10, 6);
+const starwars = new Movie("Star Wars", "Action", 6, 12, 7);
+const got = new Movie("Game of Thrones", "Fantasy", 12, 0, 8);
 
 // const movieList = [{
 //     title: 'Batman',
@@ -85,13 +85,20 @@ const got = new Movie('Game of Thrones', 'Fantasy', 12, 0);
 //     stock: 0
 // }]
 
-const movieList = []
-movieList.push(batman, superman, aquaman, mermaid, aladdin, titanic, starwars, got)
+const movieList = [];
+movieList.push(
+  batman,
+  superman,
+  aquaman,
+  mermaid,
+  aladdin,
+  titanic,
+  starwars,
+  got
+);
 
-
-const tableHomeMovies = document.getElementById("home-table")
-const imageStockImage = document.getElementById("check-img")
-
+const tableHomeMovies = document.getElementById("home-table");
+const imageStockImage = document.getElementById("check-img");
 
 tableHomeMovies.innerHTML = `
     <tr>
@@ -100,45 +107,57 @@ tableHomeMovies.innerHTML = `
         <th>Price for 12h</th>
         <th>Is in stock</th>
     </tr>
-`
+`;
+
+// const movie = { ...movieList[i]}
 
 movieList.map((movie) => {
-    tableHomeMovies.innerHTML += `
+  tableHomeMovies.innerHTML += `
         <tr>
             <td>${movie.title}</td>
             <td>${movie.genre}</td>                        
             <td>${movie.price}$</td>
-            <td class="check"><img class="check-img" id="check-img" src="images/check.png"></td>
-            <td><button class="button-rent" onclick="Rent()">Rent</button></td>
+            <td class="check"><img class="check-img" id="${movie.id} check-img" src="images/check.png"></td>
+            <td><button class="button-rent" id=${movie.id} onclick="Rent()">Rent</button></td>
         </tr>
-    `
+    `;
+});
 
-})
 
-// works only for the first one
 movieList.map((movie) => {
-    const stockImage = document.getElementById("check-img")
-    if (movie.stock === 0) {
-        stockImage.src = "images/cross.png";
-    } else {
-        stockImage.src = "images/check.png";
-    }
-})
-
+  const stockImage = document.getElementById(`${movie.id} check-img`);
+  if (movie.stock === 0) {
+    stockImage.src = "images/cross.png";
+  } else {
+    stockImage.src = "images/check.png";
+  }
+});
 
 //RENT button
-
-const rentBtn = document.getElementsByClassName("button-rent")
-const yourMovies = []
-
-console.log(rentBtn)
-
-//How to get current movie? index position
-
-function Rent() {
-    const currentMovie = ""
-    yourMovies.push(currentMovie)
-
+const currentMovie = document.getElementById(`${movie.id}`);
+function Rent(e) {
+    
+  const yourMovies = [];
+  movieList.map((movie) => {
+    const rentBtn = document.getElementById(`${movie.id}`);
+    console.log(rentBtn);
+});
+  yourMovies.push(currentMovie);
 }
-console.log()
-console.log()
+
+
+/// pabandyti 
+var buttons = document.querySelectorAll('button');
+
+for (var i=0; i<buttons.length; ++i) {
+  buttons[i].addEventListener('click', clickFunc);
+}
+
+function clickFunc() {
+  alert(this.id); 
+}
+
+
+
+
+
