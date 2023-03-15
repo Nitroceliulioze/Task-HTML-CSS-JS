@@ -18,17 +18,24 @@
     <main>
         <form id="form-signin">
             <div class="singin-container">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" class="email" placeholder="email">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="password">
+                <!-- <div class="input-control"> -->
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="email" placeholder="email">
+                    <div class="error"></div>
+                <!-- </div>
+                <div class="input-control"> -->
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="password">
+                    <div class="error"></div>
+                <!-- </div>                 -->
                 <button class="submit-btn" type="submit"><a href="home.html">Sign in</a></button>
-                <div id="error" style="color:red"></div>
+                <div id="error-signin" style="color:red"></div>
             </div>
             <div id="remove">
                 <button type="submit" class="submit-btn" id="register-btn" ><a href="#">Register</a></button>
             </div>
-        </form>    
+        </form>  
+          
         <form id="form-register">
             <div class="register-container" id="register-container">
                 <label for="name">Name</label>
@@ -44,6 +51,7 @@
                 <label for="password2">Password again</label>
                 <input type="password" name="password2" id="password2" placeholder="password">
                 <button class="submit-btn" type="submit"><a href="home.html">Register</a></button>
+                <div id="error-register" style="color:red"></div>
             </div>
         </form>
     </main>
@@ -54,6 +62,4 @@
     </footer>
     <script src="scriptLogin.js"></script>
 </body>
-</body>
-
 </html>

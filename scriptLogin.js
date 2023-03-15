@@ -4,12 +4,64 @@ const password = document.getElementById("password");
 const email = document.getElementById("email");
 const fName = document.getElementById("name");
 const surname = document.getElementById("surname");
-const errorElement = document.getElementById("error");
+const errorElementSignin = document.getElementById("error-signin");
+const errorElementRegister = document.getElementById("error-register");
 const emailRegistration = document.getElementById("email1");
 const emailAgain = document.getElementById("email2");
 const passwordRegistration = document.getElementById("password1");
 const passwordAgain = document.getElementById('password2');
 
+
+// formSignin.addEventListener('submit', e => {
+//     e.preventDefault();
+
+//     validateInputs();
+// })
+
+// const setSuccess = element => {
+//     const inputControl = element.parentElement;
+//     const errorDisplay = inputControl.querySelector('.error');
+
+//     errorDisplay.innerText = '';
+//     inputControl.classList.add('success');
+//     inputControl.classList.remove('error');
+// }
+
+// const setError = (element, message) => {
+//     const inputControl = element.parentElement;
+//     const errorDisplay = inputControl.querySelector('.error');
+
+//     errorDisplay.innerText = message;
+//     inputControl.classList.add('error');
+//     inputControl.classList.remove('success');
+// }
+
+// const isValidEmail = email => {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLocaleLowerCase())
+// }
+
+// const validateInputs = () => {
+//     const emailValue = email.value.trim();
+//     const passwordValue = password.value.trim();
+
+//     if(emailValue === '') {
+//         setError(email, 'Email is required')
+
+//     } else if (!isValidEmail(emailValue)) {
+//         setError(email, 'Provide a valid email address')
+//     } else {
+//         setSuccess(email)
+//     }
+
+//     if(passwordValue === '') {
+//         setError(password, 'Password is required')
+//     } else if (passwordValue.length <= 8) {
+//         setError(password, 'Password must be at least 8 characters')
+//     }else {
+//         setSuccess(password)
+//     }
+// }
 
 formSignin.addEventListener('submit', (e) => {
     let messages = [];
@@ -29,7 +81,7 @@ formSignin.addEventListener('submit', (e) => {
 
     if (messages.length > 0) {
         e.preventDefault()
-        errorElement.innerText = messages.join(". ")
+        errorElementSignin.innerText = messages.join(". ")
     }
     
 })
@@ -87,7 +139,7 @@ formRegister.addEventListener('submit', (e) => {
 
     if (messages.length > 0) {
         e.preventDefault()
-        errorElement.innerText = messages.join(". ")
+        errorElementRegister.innerText = messages.join(". ")
     }
     
 })
@@ -104,57 +156,4 @@ function openRegistration() {
     registerConteiner.classList.add("active");
     remove.remove()    
 }
-
-
-// // on Submit
-// function onSubmit() {
-//     emailIsValid();
-//     filledInput();
-//     validateName();
-// }
-
-
-// //Check if email is valid
-// function emailIsValid() {
-//     const emailRegex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
-//     const isValidEmail = emailRegex.test(emailInput.value);
-//     if (isValidEmail == false) {
-//         alert("Email is not valid");
-//         return false; 
-//     }
-//     return true; 
-// }
-
-// //check if all fields are filled
-// function filledInput() {
-//     if (inputText.value == "") { 
-//         alert("All inputs must be filled");  	
-//         return false; 
-//     }  	
-//     return true; 
-// }
-
-// // Validate name
-
-// function validateName() {
-// const nameInputValue = document.getElementById('name').value;
-// if (nameInputValue == "")
-//     {
-//      alert("Name field must be filled out");
-//      return false;
-//     }
-// else if (nameInputValue.length <= 2)
-//     {
-//         alert("Name must have at least 2 characters");
-//         return false;
-//     }
-// else if (/[^a-zA-Z0-9\-]/.test(nameInputValue))   {
-//         alert("Family name can only contain alphanumeric characters and hypehns(-)")
-//         return false;
-//     }
-//     return true;
-// }
-
-
-
 

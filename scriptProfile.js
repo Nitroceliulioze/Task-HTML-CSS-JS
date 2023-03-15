@@ -26,7 +26,7 @@ resetEmailBtn.addEventListener("click", () => {
         messages.push("Please enter a valid email. Cannot reser the email.")
     }
     if (messages.length > 0) {
-        e.preventDefault()
+        e.preventDefault() //whats e here?
         error.innerText = messages
         profileEmail.innerHTML += personEmail;
     }
