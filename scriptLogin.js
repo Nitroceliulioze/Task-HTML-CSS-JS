@@ -11,6 +11,43 @@ const emailAgain = document.getElementById("email2");
 const passwordRegistration = document.getElementById("password1");
 const passwordAgain = document.getElementById("password2");
 
+// LocalStorage 
+
+function register() {
+  let fname = document.getElementById("name").value;
+  let surname = document.getElementById("surname").value;
+  let email = document.getElementById("email1").value;    
+  let password = document.getElementById("password1").value;   
+
+  let newUser = {
+    name: fname,
+    surname: surname,
+    email: email,
+    password: password,
+  };
+
+  let json = JSON.stringify(newUser);
+  localStorage.setItem("user", json);
+  console.log("user added!");
+}
+
+function login() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  let user = localStorage.getItem("user");
+  let data = JSON.parse(newUser);
+  console.log(data);
+
+  if (user == null) {
+    console.log("wrong email or password")
+  } else if (email == data.email && password == data.password) {
+    console.log("logged in")
+  } else {
+    console.log("wrong email or password")
+  }
+}
+
 formSignin.addEventListener("submit", (e) => {
   let messages = [];
   const emailFormat =
@@ -31,7 +68,11 @@ formSignin.addEventListener("submit", (e) => {
   if (messages.length > 0) {
     e.preventDefault();
     errorElementSignin.innerText = messages.join(". ");
+    return false;
   }
+
+  if (messages === 0 ) return true;
+  login();
 });
 
 formRegister.addEventListener("submit", (e) => {
@@ -89,7 +130,10 @@ formRegister.addEventListener("submit", (e) => {
   if (messages.length > 0) {
     e.preventDefault();
     errorElementRegister.innerText = messages.join(". ");
-  }
+    return false;
+  }  
+  if (messages === 0 ) return true;
+  register();
 });
 
 const registerBtn = document.getElementById("register-btn");
@@ -106,15 +150,3 @@ function openRegistration() {
 }
 
 
-///localStorage 
-
-// const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-
-// const addUser = (fName, surname, emailRegistration, emailAgain, passwordRegistration, passwordAgain) => {
-//   registeredUsers.push({
-//     name: 
-//   })
-// }
-
-
-localStorage.setItem("registeredUsers", )

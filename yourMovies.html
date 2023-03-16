@@ -7,6 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
     <title>Your Movies</title>
+    <script type="module" src="scriptYourMovies.js"></script>
 </head>
 <body>
     <header>
@@ -24,8 +25,8 @@
         <div class="main-container">
             <h2 class="yourMovies-name">Your Movies</h2>
             <div class="yourMovies-container">
-                <table>
-                    <tr>
+                <table id="yourMovies-table">
+                    <!-- <tr>
                         <th>Name</th>
                         <th>Genre</th>
                         <th>Time</th>
@@ -37,10 +38,9 @@
                         <td><span class="sign prev" onclick="decrement()">&#60;</span><span class="time" id="time"> 12 </span><span class="sign next" id="next" onclick="increment()">&#62;</span></td>
                         <td>4.55$</td>
                         <td><button class="button-remove" id="button-remove" onclick="remove()">Remove</button></td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
-
         </div>
     </main>
 
@@ -49,6 +49,6 @@
         <div class="year">2023</div>
     </footer>
 
-    <script src="scriptYourMovies.js"></script>
+    
 </body>
 </html>

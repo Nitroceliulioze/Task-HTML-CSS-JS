@@ -1,7 +1,7 @@
 // HOME.html
 //MOVIE LIST
 
-class Movie {
+export default class Movie {
   constructor(title, genre, price, stock, id) {
     (this.title = title),
       (this.genre = genre),
@@ -85,7 +85,7 @@ const got = new Movie("Game of Thrones", "Fantasy", 12, 0, 8);
 //     stock: 0
 // }]
 
-const movieList = [];
+export const movieList = [];
 movieList.push(
   batman,
   superman,
@@ -98,7 +98,6 @@ movieList.push(
 );
 
 const tableHomeMovies = document.getElementById("home-table");
-const imageStockImage = document.getElementById("check-img");
 
 tableHomeMovies.innerHTML = `
     <tr>
@@ -132,22 +131,14 @@ movieList.map((movie) => {
 
 //RENT button
 
-//
-// function Rent() {
-//   movieList.map((movie) => {
-//     const currentMovie = document.getElementById(`${movie.id}`);
-
-//     yourMovies.push(currentMovie);
-//   });
-// }
-
 const buttons = document.querySelectorAll("button");
-const movieRow = document.getElementById("movie-row");
+
+export const yourMovies = [];
 
 for (let i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener("click", rent);
 }
-const yourMovies = [];
+
 function rent() {
   for (let i = 0; i < movieList.length; i++) {
     if (movieList[i].id === +this.id) {
@@ -155,12 +146,11 @@ function rent() {
         return false;
       } else {
         movieList[i].stock = movieList[i].stock - 1;
-        console.log("here");
         yourMovies.push(movieList[i]);
       }
     }
   }
-  console.log(yourMovies);
+  
   movieList.map((movie) => {
     const stockImage = document.getElementById(`${movie.id} check-img`);
     if (movie.stock === 0) {
@@ -170,11 +160,4 @@ function rent() {
     }
   });
 }
-
-// for (var i=0; i<buttons.length; ++i) {
-//   buttons[i].addEventListener('click', clickFunc);
-// }
-
-// function clickFunc() {
-//   alert(this.id);
-// }
+console.log(yourMovies);
