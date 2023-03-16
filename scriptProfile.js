@@ -29,7 +29,6 @@ resetEmailBtn.addEventListener("click", (e) => {
     if (messages.length > 0) {      
         error.innerText = messages
         profileEmail.innerHTML = personEmail;
-    }
-    
+    }    
 })
 
