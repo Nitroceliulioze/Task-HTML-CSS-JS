@@ -16,27 +16,23 @@
     </header>
 
     <main>
-        <form id="form-signin">
-            <div class="singin-container">
-                <!-- <div class="input-control"> -->
+        <form id="form-signin" action="home.html" >
+            <div class="singin-container">                
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" class="email" placeholder="email">
-                    <div class="error"></div>
-                <!-- </div>
-                <div class="input-control"> -->
+                    <div class="error"></div>                
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="password">
-                    <div class="error"></div>
-                <!-- </div>                 -->
-                <button class="submit-btn" type="submit"><a href="home.html">Sign in</a></button>
+                    <div class="error"></div>                
+                <button class="submit-btn" type="submit">Sign in</button>
                 <div id="error-signin" style="color:red"></div>
             </div>
             <div id="remove">
-                <button type="submit" class="submit-btn" id="register-btn" ><a href="#">Register</a></button>
+                <button type="submit" class="submit-btn" id="register-btn">Register</button>
             </div>
         </form>  
           
-        <form id="form-register">
+        <form id="form-register" action="home.html">
             <div class="register-container" id="register-container">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="name">
@@ -50,7 +46,7 @@
                 <input type="password" name="password1" id="password1" placeholder="password">
                 <label for="password2">Password again</label>
                 <input type="password" name="password2" id="password2" placeholder="password">
-                <button class="submit-btn" type="submit"><a href="home.html">Register</a></button>
+                <button class="submit-btn" type="submit">Register</button>
                 <div id="error-register" style="color:red"></div>
             </div>
         </form>
