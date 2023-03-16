@@ -104,3 +104,17 @@ function openRegistration() {
   registerConteiner.classList.add("active");
   remove.remove();
 }
+
+
+///localStorage 
+
+// const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+
+// const addUser = (fName, surname, emailRegistration, emailAgain, passwordRegistration, passwordAgain) => {
+//   registeredUsers.push({
+//     name: 
+//   })
+// }
+
+
+localStorage.setItem("registeredUsers", )

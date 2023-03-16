@@ -1,6 +1,6 @@
 const removeBtn = document.getElementById("button-remove");
 const yourMovieRow = document.getElementById("your-movie-row");
-let rentTime = document.getElementById("time");
+const rentTime = document.getElementById("time");
 const timeIncrement = document.getElementById("next");
 const timeDerement = document.querySelectorAll(".prev")
 

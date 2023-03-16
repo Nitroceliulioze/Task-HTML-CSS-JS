@@ -9,33 +9,33 @@ class Movie {
       (this.stock = stock),
       (this.id = id);
   }
-  getTitle = () => {
-    return this.title;
-  };
+  // getTitle = () => {
+  //   return this.title;
+  // };
 
-  getGenre = () => {
-    return this.genre;
-  };
+  // getGenre = () => {
+  //   return this.genre;
+  // };
 
-  getPrice = () => {
-    return this.price;
-  };
+  // getPrice = () => {
+  //   return this.price;
+  // };
 
-  getStock = () => {
-    return this.stock;
-  };
+  // getStock = () => {
+  //   return this.stock;
+  // };
 
-  getMovies = () => {
-    return this.movies;
-  };
+  // getMovies = () => {
+  //   return this.movies;
+  // };
 
-  addMovie = (movie) => {
-    this.movies.push(movie);
-  };
+  // addMovie = (movie) => {
+  //   this.movies.push(movie);
+  // };
 }
 
 const batman = new Movie("Batman", "Action", 4.55, 0, 1);
-const superman = new Movie("Superman", "Action", 4.55, 3, 2);
+const superman = new Movie("Superman", "Action", 4.55, 10, 2);
 const aquaman = new Movie("Aquaman", "Action", 4.55, 3, 3);
 const mermaid = new Movie("Little mermaid", "Amination", 3.5, 5, 4);
 const aladdin = new Movie("Aladdin", "Animation", 4, 4, 5);
@@ -109,20 +109,17 @@ tableHomeMovies.innerHTML = `
     </tr>
 `;
 
-// const movie = { ...movieList[i]}
-
 movieList.map((movie) => {
   tableHomeMovies.innerHTML += `
-        <tr>
+        <tr id="movie-row">
             <td>${movie.title}</td>
             <td>${movie.genre}</td>                        
             <td>${movie.price}$</td>
             <td class="check"><img class="check-img" id="${movie.id} check-img" src="images/check.png"></td>
-            <td><button class="button-rent" id=${movie.id} onclick="Rent()">Rent</button></td>
+            <td><button class="button-rent" id="${movie.id}">Rent</button></td>
         </tr>
     `;
 });
-
 
 movieList.map((movie) => {
   const stockImage = document.getElementById(`${movie.id} check-img`);
@@ -134,30 +131,49 @@ movieList.map((movie) => {
 });
 
 //RENT button
-const currentMovie = document.getElementById(`${movie.id}`);
-function Rent(e) {
-    
-  const yourMovies = [];
+
+//
+// function Rent() {
+//   movieList.map((movie) => {
+//     const currentMovie = document.getElementById(`${movie.id}`);
+
+//     yourMovies.push(currentMovie);
+//   });
+// }
+
+const buttons = document.querySelectorAll("button");
+const movieRow = document.getElementById("movie-row");
+
+for (let i = 0; i < buttons.length; ++i) {
+  buttons[i].addEventListener("click", rent);
+}
+const yourMovies = [];
+function rent() {  
+  for (let i = 0; i < movieList.length; i++) {
+    if (movieList[i].id === +this.id) {
+      console.log("here");
+      yourMovies.push(movieList[i]);
+      if( movieList[i].stock === 0 ) {
+        return false
+      } else {
+        movieList[i].stock = movieList[i].stock - 1;
+      }      
+    }
+  } console.log(yourMovies);
   movieList.map((movie) => {
-    const rentBtn = document.getElementById(`${movie.id}`);
-    console.log(rentBtn);
-});
-  yourMovies.push(currentMovie);
+    const stockImage = document.getElementById(`${movie.id} check-img`);
+    if (movie.stock === 0) {
+      stockImage.src = "images/cross.png";
+    } else {
+      stockImage.src = "images/check.png";
+    }
+  });
 }
 
+// for (var i=0; i<buttons.length; ++i) {
+//   buttons[i].addEventListener('click', clickFunc);
+// }
 
-/// pabandyti 
-var buttons = document.querySelectorAll('button');
-
-for (var i=0; i<buttons.length; ++i) {
-  buttons[i].addEventListener('click', clickFunc);
-}
-
-function clickFunc() {
-  alert(this.id); 
-}
-
-
-
-
-
+// function clickFunc() {
+//   alert(this.id);
+// }
