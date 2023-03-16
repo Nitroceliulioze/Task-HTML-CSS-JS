@@ -148,18 +148,19 @@ for (let i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener("click", rent);
 }
 const yourMovies = [];
-function rent() {  
+function rent() {
   for (let i = 0; i < movieList.length; i++) {
     if (movieList[i].id === +this.id) {
-      console.log("here");
-      yourMovies.push(movieList[i]);
-      if( movieList[i].stock === 0 ) {
-        return false
+      if (movieList[i].stock === 0) {
+        return false;
       } else {
         movieList[i].stock = movieList[i].stock - 1;
-      }      
+        console.log("here");
+        yourMovies.push(movieList[i]);
+      }
     }
-  } console.log(yourMovies);
+  }
+  console.log(yourMovies);
   movieList.map((movie) => {
     const stockImage = document.getElementById(`${movie.id} check-img`);
     if (movie.stock === 0) {
