@@ -1,7 +1,7 @@
 // HOME.html
 //MOVIE LIST
 
-export default class Movie {
+class Movie {
   constructor(title, genre, price, stock, id) {
     (this.title = title),
       (this.genre = genre),
@@ -85,7 +85,7 @@ const got = new Movie("Game of Thrones", "Fantasy", 12, 0, 8);
 //     stock: 0
 // }]
 
-export const movieList = [];
+const movieList = [];
 movieList.push(
   batman,
   superman,
@@ -133,7 +133,7 @@ movieList.map((movie) => {
 
 const buttons = document.querySelectorAll("button");
 
-export const yourMovies = [];
+const yourMovies = [];
 
 for (let i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener("click", rent);

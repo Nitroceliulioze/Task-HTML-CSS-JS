@@ -1,5 +1,3 @@
-import { yourMovies } from "./scriptHome";
-
 const removeBtn = document.getElementById("button-remove");
 const yourMovieRow = document.getElementById("your-movie-row");
 const rentTime = document.getElementById("time");
@@ -20,7 +18,7 @@ tableYourMovies.innerHTML = `
 `;
 
 yourMovies.map((movie) => {
-    tableYourMovies += `
+    tableYourMovies.innerHTML += `
         <tr id="your-movie-row">
             <td>${movie.title}</td>
             <td>${movie.genre}</td>
