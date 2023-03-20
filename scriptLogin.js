@@ -11,13 +11,13 @@ const emailAgain = document.getElementById("email2");
 const passwordRegistration = document.getElementById("password1");
 const passwordAgain = document.getElementById("password2");
 
-// LocalStorage 
+// LocalStorage
 
 function register() {
   let fname = document.getElementById("name").value;
   let surname = document.getElementById("surname").value;
-  let email = document.getElementById("email1").value;    
-  let password = document.getElementById("password1").value;   
+  let email = document.getElementById("email1").value;
+  let password = document.getElementById("password1").value;
 
   let newUser = {
     name: fname,
@@ -36,15 +36,15 @@ function login() {
   let password = document.getElementById("password").value;
 
   let user = localStorage.getItem("user");
-  let data = JSON.parse(newUser);
+  let data = JSON.parse(user);
   console.log(data);
 
   if (user == null) {
-    console.log("wrong email or password")
+    console.log("wrong email or password");
   } else if (email == data.email && password == data.password) {
-    console.log("logged in")
+    console.log("logged in");
   } else {
-    console.log("wrong email or password")
+    console.log("wrong email or password");
   }
 }
 
@@ -71,8 +71,10 @@ formSignin.addEventListener("submit", (e) => {
     return false;
   }
 
-  if (messages === 0 ) return true;
-  login();
+  if (messages.length === 0) {
+    login();
+    return true;
+  }
 });
 
 formRegister.addEventListener("submit", (e) => {
@@ -131,9 +133,11 @@ formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
     errorElementRegister.innerText = messages.join(". ");
     return false;
-  }  
-  if (messages === 0 ) return true;
-  register();
+  }
+  if (messages.length === 0) {
+    register();
+    return true;
+  }
 });
 
 const registerBtn = document.getElementById("register-btn");
@@ -148,5 +152,3 @@ function openRegistration() {
   registerConteiner.classList.add("active");
   remove.remove();
 }
-
-

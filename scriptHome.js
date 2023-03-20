@@ -129,6 +129,8 @@ movieList.map((movie) => {
   }
 });
 
+
+
 //RENT button
 
 const buttons = document.querySelectorAll("button");
@@ -147,6 +149,7 @@ function rent() {
       } else {
         movieList[i].stock = movieList[i].stock - 1;
         yourMovies.push(movieList[i]);
+        localStorage.movies = JSON.stringify(yourMovies);
       }
     }
   }
@@ -161,3 +164,4 @@ function rent() {
   });
 }
 console.log(yourMovies);
+

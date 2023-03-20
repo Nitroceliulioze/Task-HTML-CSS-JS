@@ -1,5 +1,5 @@
 const removeBtn = document.getElementById("button-remove");
-const yourMovieRow = document.getElementById("your-movie-row");
+
 const rentTime = document.getElementById("time");
 const timeIncrement = document.getElementById("next");
 const timeDerement = document.querySelectorAll(".prev");
@@ -7,6 +7,8 @@ const timeDerement = document.querySelectorAll(".prev");
 //yourMovies table
 
 const tableYourMovies = document.getElementById("yourMovies-table");
+
+const yourMovies = JSON.parse(localStorage.getItem("movies"));
 
 tableYourMovies.innerHTML = `
     <tr>
@@ -18,46 +20,68 @@ tableYourMovies.innerHTML = `
 `;
 
 yourMovies.map((movie) => {
-    tableYourMovies.innerHTML += `
-        <tr id="your-movie-row">
+  tableYourMovies.innerHTML += `
+        <tr id="${movie.id} your-movie-row">
             <td>${movie.title}</td>
             <td>${movie.genre}</td>
-            <td><span class="sign prev" onclick="decrement()">&#60;</span><span class="time" id="time"> 12 </span><span class="sign next" id="next" onclick="increment()">&#62;</span></td>
+            <td><span class="sign prev" onclick="decrement()">&#60;</span><span class="time" id="time"> 12 </span><span class="sign next" id="next">&#62;</span></td>
             <td>${movie.price}</td>
-            <td><button class="button-remove" id="${movie.id} button-remove" onclick="remove()">Remove</button></td>
+            <td><button class="button-remove" id="${movie.id}">Remove</button></td>
         </tr>
     `;
-})
+});
 
+// // Time column
 
+// let time = 12;
 
-// Time column
+// rentTime.innerHTML = time + "h";
 
-let time = 12;
+// function increment() {
+//   if (time === 168) {
+//     return false;
+//   } else {
+//     time += 12;
+//     rentTime.innerHTML = time + "h";
+//   }
+//   console.log(next)
+// }
 
-rentTime.innerHTML = time + "h";
-
-function increment() {
-  if (time === 168) {
-    return false;
-  } else {
-    time += 12;
-    rentTime.innerHTML = time + "h";
-  }
-}
-
-function decrement() {
-  if (time === 12) {
-    return false;
-  } else {
-    time = 12;
-    rentTime.innerHTML = time + "h";
-  }
-}
+// function decrement() {
+//   if (time === 12) {
+//     return false;
+//   } else {
+//     time = 12;
+//     rentTime.innerHTML = time + "h";
+//   }
+// }
 
 // REMOVE button
-// How to get current movie?
+const buttons = document.querySelectorAll("button");
 
-function remove() {
-  yourMovieRow.style.display = "none";
+for (let i = 0; i < buttons.length; ++i) {
+  buttons[i].addEventListener("click", removeMovie);
 }
+
+//get index and splice
+
+function removeMovie() {
+  for (let i = 0; i < yourMovies.length; i++) {
+    console.log(yourMovies[i]);
+    if (yourMovies[i].id === +this.id) {
+        console.log(yourMovies.getIndexOf(i))
+    }
+  }
+}
+yourMovies.map((movie) => {
+  const yourMovieRow = document.getElementById(`${movie.id} your-movie-row`);
+});
+// function remove() {
+//   console.log(this)
+// for (let i = 0; i < yourMovies.length; i++) {
+//   if (yourMovies[i].id === +this.id) {
+//     yourMovieRow.style.display = "none";
+
+//     yourMovies[i].stock = yourMovies[i].stock + 1;
+//   }
+//   // }
